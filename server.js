@@ -335,11 +335,19 @@ cron.schedule("0 7 * * *", () => {
   runFetchBayans();
 });
 
+// // =====================
+// // ✅ FIXED ROOT ROUTE
+// // =====================
+// app.get("/", (req, res) => {
+//   res.send("🕌 Ummati backend is live and running!");
+// });
 // =====================
-// ✅ FIXED ROOT ROUTE
+// ✅ SERVE STATIC FRONTEND FILES
 // =====================
+app.use(express.static(path.join(__dirname, ".."))); // go up from ummati-backend
+
 app.get("/", (req, res) => {
-  res.send("🕌 Ummati backend is live and running!");
+  res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
 // =====================
