@@ -322,7 +322,7 @@ cron.schedule("0 7 * * *", () => {
 // =====================
 // ✅ CATCH-ALL: SERVE FRONTEND INDEX.HTML
 // =====================
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html")); // ✅ This serves the frontend
 });
 
